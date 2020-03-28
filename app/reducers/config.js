@@ -14,7 +14,6 @@ import {
   SET_SELECTED_LOCATIONS,
   SELECT_ALL_LOCATIONS,
   SELECT_LOCATION,
-  SET_SPY_COUNT,
   SET_TIME,
   UPDATE_PLAYER,
 } from 'actions/config';
@@ -119,8 +118,6 @@ export default (state = initialState, action) => {
       };
     case SET_TIME:
       return {...state, time: action.payload};
-    case SET_SPY_COUNT:
-      return {...state, spyCount: action.payload};
     default: return state;
   }
 };
