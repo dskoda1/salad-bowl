@@ -8,14 +8,14 @@ import Locations from 'components/Locations/Locations';
 import gameLocationsSelector from 'selectors/gameLocations';
 import selectedLocationsCountSelector from 'selectors/selectedLocationsCount';
 
-import SpyIcon from 'components/SpyIcon/SpyIcon';
+import SaladIcon from 'components/SaladIcon/SaladIcon';
 import TimerManager from './TimerManager';
 
 export const GameInfo = ({matchId, gameLocations, spyCount, prevLocation, selectedLocationsCount}) => (
   <div>
     <Row className={styles.spiesCountContainer}>
       <Col className="text-center">
-        {_.times(spyCount).map((i) => <SpyIcon key={i} />)}
+        {_.times(spyCount).map((i) => <SaladIcon key={i} />)}
       </Col>
     </Row>
     <Row className={styles.locationsContainer}>

@@ -10,7 +10,7 @@ import RolePopup from 'components/RolePopup/RolePopup';
 import ResultsSpies from 'components/ResultsSpies/ResultsSpies';
 import {database} from 'services/firebase';
 import {setJoinedRoomAction} from 'actions/session';
-import SpyIcon from 'components/SpyIcon/SpyIcon';
+import SaladIcon from 'components/SaladIcon/SaladIcon';
 import Timer from 'components/Timer/Timer';
 import Spinner from 'components/Spinner/Spinner';
 import {showError} from 'utils/toast';
@@ -98,7 +98,7 @@ export const RoomClient = ({ userId, roomId, player, joinedRoom, setJoinedRoom }
       {started &&
       <Row className={styles.spiesCountContainer}>
         <Col className="text-center">
-          {_.times(room.spyCount).map((i) => <SpyIcon key={i} />)}
+          {_.times(room.spyCount).map((i) => <SaladIcon key={i} />)}
         </Col>
       </Row>
       }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col, Modal, ModalHeader, ModalBody } from 'reactstrap';
 import {css} from 'emotion';
-import SpyIcon from 'components/SpyIcon/SpyIcon';
+import SaladIcon from 'components/SaladIcon/SaladIcon';
 import Localized from 'components/Localized/Localized';
 import LocalizedLocation from 'components/LocalizedLocation/LocalizedLocation';
 import LocalizedRole from 'components/LocalizedRole/LocalizedRole';
@@ -26,7 +26,7 @@ export default ({isOpen, toggle, player, location, role, customLocations}) => (
         <Col className="text-center">
           <span className={styles.label}><Localized name="interface.role" />: </span>
           <span className={styles.value}>
-            {role === SPY_ROLE ? <SpyIcon /> : <LocalizedRole role={role} location={location} customLocations={customLocations} />}
+            {role === SPY_ROLE ? <SaladIcon /> : <LocalizedRole role={role} location={location} customLocations={customLocations} />}
           </span>
         </Col>
       </Row>

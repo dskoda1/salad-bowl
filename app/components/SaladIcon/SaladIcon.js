@@ -1,9 +1,9 @@
 import React from 'react';
 import { css } from 'emotion';
-import SpyIconImage from 'images/salad.png';
+import SaladIconImage from 'images/salad.png';
 
 const SaladIcon = (props) => (
-  <img src={SpyIconImage} className={`${styles.saladIcon} ${props.className}`} style={props.style} width={20} alt="Salad icon" />
+  <img src={SaladIconImage} className={`${styles.saladIcon} ${props.className}`} style={props.style} width={20} alt="Salad icon" />
 );
 
 export default SaladIcon;

@@ -6,8 +6,6 @@ import Localized from 'components/Localized/Localized';
 import {setSpyCountAction, setTimeAction} from 'actions/config';
 import {logEvent} from 'utils/analytics';
 
-import SpyIcon from 'components/SpyIcon/SpyIcon';
-
 export const GameConfig = ({time, setTime, spyCount, setSpyCount}) => {
   const onChangeSpyCount = (count) => () => {
     logEvent('GAME_SET_SPIES', count);
