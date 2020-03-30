@@ -42,9 +42,7 @@ export const Game = ({roomId, roomConnected, state}) => {
     <div className={styles.container}>
       <GamePlayers started={started} remotePlayers={remotePlayers} />
       {!started &&
-        <React.Fragment>
-          <GameConfig />
-        </React.Fragment>
+        <GameConfig />
       }
       {started &&
         <GameInfo />
