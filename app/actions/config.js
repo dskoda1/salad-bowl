@@ -11,7 +11,6 @@ export const ADD_PLAYER = 'CONFIG_ADD_PLAYER';
 export const REM_PLAYER = 'CONFIG_REM_PLAYER';
 export const UPDATE_PLAYER = 'CONFIG_UPDATE_PLAYER';
 export const SET_TIME = 'CONFIG_SET_TIME';
-export const SET_SPY_COUNT = 'CONFIG_SET_SPY_COUNT';
 
 export const selectLocationAction = (locationId) => ({
   type: SELECT_LOCATION,
@@ -73,9 +72,4 @@ export const updatePlayerAction = (playerIndex, player) => ({
 export const setTimeAction = (time) => ({
   type: SET_TIME,
   payload: time,
-});
-
-export const setSpyCountAction = (spyCount) => ({
-  type: SET_SPY_COUNT,
-  payload: spyCount,
 });
