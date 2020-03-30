@@ -1,16 +1,13 @@
-import _ from 'lodash';
 import React, {useEffect, useState} from 'react';
 import {css} from 'emotion';
 import {connect} from 'react-redux';
 import {Button, Col, Container, Row} from 'reactstrap';
 import Localized from 'components/Localized/Localized';
 
-import Locations from 'components/Locations/Locations';
 import RolePopup from 'components/RolePopup/RolePopup';
 import ResultsSpies from 'components/ResultsSpies/ResultsSpies';
 import {database} from 'services/firebase';
 import {setJoinedRoomAction} from 'actions/session';
-import SaladIcon from 'components/SaladIcon/SaladIcon';
 import Timer from 'components/Timer/Timer';
 import Spinner from 'components/Spinner/Spinner';
 import {showError} from 'utils/toast';
@@ -84,7 +81,6 @@ export const RoomClient = ({ userId, roomId, player, joinedRoom, setJoinedRoom }
 
   const started = room.state === GAME_STATES.STARTED;
   const stopped = room.state === GAME_STATES.STOPPED;
-  const locationsSize = Object.keys(gameLocations).length;
 
   return (
     <Container className={styles.container}>
