@@ -95,20 +95,7 @@ export const RoomClient = ({ userId, roomId, player, joinedRoom, setJoinedRoom }
           {!started && !stopped && <Button color="primary" outline disabled block>{player} - <Localized name="interface.game_connected" /></Button>}
         </Col>
       </Row>
-      {started &&
-      <Row className={styles.spiesCountContainer}>
-        <Col className="text-center">
-          {_.times(room.spyCount).map((i) => <SaladIcon key={i} />)}
-        </Col>
-      </Row>
-      }
       {started && <RolePopup isOpen={showRole} toggle={toggleShowRole} player={player} location={room.location} role={room.playersRoles[userId]} customLocations={gameLocations} />}
-      <Row className={styles.stateContainer}>
-        <Col className="text-center">
-          <h4><Localized name="interface.game_locations" /> ({locationsSize})</h4>
-        </Col>
-      </Row>
-      <Locations matchId={room?.matchId} locations={gameLocations} location={!started && room.location} prevLocation={room.prevLocation} />
       {started &&
         <Row className={styles.timerContainer}>
           <Col>
