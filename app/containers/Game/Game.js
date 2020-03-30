@@ -11,7 +11,6 @@ import CogIcon from 'components/CogIcon/CogIcon';
 import {logEvent} from 'utils/analytics';
 
 import GamePlayers from './GamePlayers';
-import GamePlayersController from './GamePlayersController';
 import GameConfig from './GameConfig';
 import GameInfo from './GameInfo';
 import LocationsPopup from './LocationsPopup';
@@ -43,10 +42,7 @@ export const Game = ({roomId, roomConnected, state}) => {
     <div className={styles.container}>
       <GamePlayers started={started} remotePlayers={remotePlayers} />
       {!started &&
-        <React.Fragment>
-          <GamePlayersController remotePlayers={remotePlayers} />
-          <GameConfig />
-        </React.Fragment>
+        <GameConfig />
       }
       {started &&
         <GameInfo />

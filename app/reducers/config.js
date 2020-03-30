@@ -3,12 +3,10 @@ import i18n from 'i18n';
 import roomIdGenerator from 'services/roomIdGenerator';
 import {DEFAULT_LOCATIONS} from 'consts';
 import {
-  ADD_PLAYER,
   CREATE_CUSTOM_LOCATION,
   DESELECT_ALL_LOCATIONS,
   DESELECT_LOCATION,
   REM_CUSTOM_LOCATION,
-  REM_PLAYER,
   SAVE_CUSTOM_LOCATION,
   SET_CUSTOM_LOCATIONS,
   SET_SELECTED_LOCATIONS,
@@ -92,20 +90,6 @@ export default (state = initialState, action) => {
       delete customLocations[action.payload];
       delete selectedLocations[action.payload];
       return {...state, customLocations, selectedLocations};
-    }
-    case ADD_PLAYER: {
-      const players = [...state.players, `P${state.players.length + 1}`];
-      return {
-        ...state,
-        players,
-      };
-    }
-    case REM_PLAYER: {
-      const players = state.players.slice(0, -1);
-      return {
-        ...state,
-        players,
-      };
     }
     case UPDATE_PLAYER:
       return {
