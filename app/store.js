@@ -1,4 +1,4 @@
-import {createStore, applyMiddleware, compose, combineReducers} from 'redux';
+import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
@@ -25,26 +25,29 @@ const composeEnhancers =
   typeof window === 'object' &&
   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
     ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
-      // TODO Try to remove when `react-router-redux` is out of beta, LOCATION_CHANGE should not be fired more than once after hot reloading
-      // Prevent recomputing reducers for `replaceReducer`
-      shouldHotReload: false,
-    })
+        // TODO Try to remove when `react-router-redux` is out of beta, LOCATION_CHANGE should not be fired more than once after hot reloading
+        // Prevent recomputing reducers for `replaceReducer`
+        shouldHotReload: false,
+      })
     : compose;
 /* eslint-enable */
 
 const enhancer = composeEnhancers(
-  applyMiddleware(...middlewares),
+  applyMiddleware(...middlewares)
   // other store enhancers if any
 );
 
-const persistedReducer = persistReducer(persistConfig, combineReducers({
-  root,
-  session,
-  game,
-  config,
-  room,
-  joinRoom,
-}));
+const persistedReducer = persistReducer(
+  persistConfig,
+  combineReducers({
+    root,
+    session,
+    game,
+    config,
+    room,
+    joinRoom,
+  })
+);
 
 export const store = createStore(persistedReducer, {}, enhancer);
 export const persistor = persistStore(store);

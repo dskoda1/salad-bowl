@@ -1,11 +1,11 @@
 {
-  "name": "spyfall",
-  "version": "2.0.0",
-  "description": "spyfall",
+  "name": "salad-bowl",
+  "version": "0.0.1",
+  "description": "Online implementation of Salad Bowl",
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/adrianocola/spyfall"
+    "url": "https://github.com/GentlemenoftheCode/salad-bowl"
   },
   "keywords": [
     "spyfall"
@@ -14,9 +14,9 @@
     "npm": ">=5",
     "node": ">=8"
   },
-  "author": "Adriano Cola",
+  "author": "https://github.com/orgs/GentlemenoftheCode/people",
   "license": "ISC",
-  "homepage": "http://adrianocola.com/spyfall",
+  "homepage": "",
   "scripts": {
     "postinstall": "patch-package",
     "prebuild": "npm run build:clean",
@@ -38,10 +38,11 @@
     "deploy-prod": "cp app/translations.js functions/lib/translations.js && firebase deploy --project prod --only",
     "copy-translations": "rimraf ./build/i18n && ncp ./public/i18n ./build/i18n",
     "deploy-translations": "npm run copy-translations && npm run firebase-deploy",
-    "deploy-translations-prod": "npm run copy-translations && npm run firebase-deploy-prod"
+    "deploy-translations-prod": "npm run copy-translations && npm run firebase-deploy-prod",
+    "prettier": "prettier --config .prettierrc --write \"app/**/*.js\""
   },
   "lint-staged": {
-    "*.js": "eslint --ignore-path .gitignore --ignore-pattern internals/scripts"
+    "*.js": "npm run prettier"
   },
   "pre-commit": "lint:staged",
   "dependencies": {
@@ -132,6 +133,7 @@
     "patch-package": "^6.2.1",
     "plop": "^2.5.3",
     "pre-commit": "^1.2.2",
+    "prettier": "2.0.2",
     "react-test-renderer": "^16.12.0",
     "rimraf": "^2.7.1",
     "sass-loader": "^7.3.1",

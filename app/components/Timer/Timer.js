@@ -3,9 +3,9 @@ import React, { useState, useRef, useEffect } from 'react';
 import { css } from 'emotion';
 import { Button } from 'reactstrap';
 import beep from 'services/beep';
-import {SHADES} from 'styles/consts';
+import { SHADES } from 'styles/consts';
 
-export default ({initialValue, running, onComplete}) => {
+export default ({ initialValue, running, onComplete }) => {
   const prevRunningRef = useRef();
   const prevRunning = prevRunningRef.current;
 
@@ -17,7 +17,7 @@ export default ({initialValue, running, onComplete}) => {
   useEffect(() => {
     prevRunningRef.current = running;
     // started...
-    if(!prevRunning && running){
+    if (!prevRunning && running) {
       const startTime = Date.now();
       const timeout = setInterval(() => {
         setTime(initialTime - Math.floor((Date.now() - startTime) / 1000));
@@ -25,24 +25,27 @@ export default ({initialValue, running, onComplete}) => {
       return () => clearInterval(timeout);
     }
     // paused...
-    if(prevRunning && !running){
+    if (prevRunning && !running) {
       setInitialTime(time);
     }
   }, [running]);
 
-
   // handle timer completion
   useEffect(() => {
-    if(time <= 0){
+    if (time <= 0) {
       setFinishedRunning(true);
       beep(2);
-      if(onComplete) onComplete();
+      if (onComplete) onComplete();
     }
   }, [time]);
 
   return (
     <Button color="secondary" disabled outline block className={styles.timer}>
-      {!finishedRunning && <span>{Math.floor(time / 60)}:{_.padStart(time % 60, 2, '0')}</span>}
+      {!finishedRunning && (
+        <span>
+          {Math.floor(time / 60)}:{_.padStart(time % 60, 2, '0')}
+        </span>
+      )}
       {finishedRunning && <span>--:--</span>}
     </Button>
   );

@@ -1,15 +1,20 @@
 import React from 'react';
 import { css } from 'emotion';
 import { connect } from 'react-redux';
-import { Row, Col, Button} from 'reactstrap';
+import { Row, Col, Button } from 'reactstrap';
 import Localized from 'components/Localized/Localized';
 import SelectAll from 'components/SelectAll/SelectAll';
 import { createCustomLocationAction } from 'actions/config';
-import {logEvent} from 'utils/analytics';
+import { logEvent } from 'utils/analytics';
 
 import Location from './Location';
 
-export const CustomLocationsList = ({customLocations, onSelectAll, onDeselectAll, createCustomLocation}) => {
+export const CustomLocationsList = ({
+  customLocations,
+  onSelectAll,
+  onDeselectAll,
+  createCustomLocation,
+}) => {
   const onSelectAllClick = () => {
     logEvent('SETTINGS_ON_SELECT_ALL');
     onSelectAll(Object.keys(customLocations));
@@ -25,7 +30,9 @@ export const CustomLocationsList = ({customLocations, onSelectAll, onDeselectAll
       <Col>
         <Row className={styles.locationsListNameContainer}>
           <Col className="text-center">
-            <h5><Localized name="interface.game_locations_custom" /></h5>
+            <h5>
+              <Localized name="interface.game_locations_custom" />
+            </h5>
           </Col>
         </Row>
         <Row className={styles.checksContainer}>
@@ -36,12 +43,18 @@ export const CustomLocationsList = ({customLocations, onSelectAll, onDeselectAll
             <SelectAll onClick={onDeselectAllClick} />
           </Col>
         </Row>
-        {Object.entries(customLocations).map(([id, location]) =>
+        {Object.entries(customLocations).map(([id, location]) => (
           <Location key={id} locationId={id} location={location} />
-        )}
+        ))}
         <Row className={styles.addCustomLocation}>
           <Col>
-            <Button color="primary" block onClick={() => createCustomLocation()}><Localized name="interface.add_location" /></Button>
+            <Button
+              color="primary"
+              block
+              onClick={() => createCustomLocation()}
+            >
+              <Localized name="interface.add_location" />
+            </Button>
           </Col>
         </Row>
       </Col>
@@ -70,4 +83,7 @@ const mapDispatchToProps = (dispatch) => ({
   createCustomLocation: () => dispatch(createCustomLocationAction()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(CustomLocationsList);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CustomLocationsList);

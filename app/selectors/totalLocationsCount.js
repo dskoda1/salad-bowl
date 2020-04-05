@@ -6,5 +6,5 @@ const getCustomLocations = (state) => state.config.customLocations;
 
 export default createSelector(
   getCustomLocations,
-  (customLocations) => _.size(DEFAULT_LOCATIONS) + _.size(customLocations),
+  (customLocations) => _.size(DEFAULT_LOCATIONS) + _.size(customLocations)
 );

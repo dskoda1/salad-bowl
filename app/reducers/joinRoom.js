@@ -1,7 +1,4 @@
-import {
-  SET_ROOM_ID,
-  SET_PLAYER_ID,
-} from 'actions/joinRoom';
+import { SET_ROOM_ID, SET_PLAYER_ID } from 'actions/joinRoom';
 
 const initialState = {
   roomId: '',
@@ -9,11 +6,12 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-  switch(action.type){
+  switch (action.type) {
     case SET_ROOM_ID:
-      return {...state, roomId: (action.payload || '').toUpperCase()};
+      return { ...state, roomId: (action.payload || '').toUpperCase() };
     case SET_PLAYER_ID:
-      return {...state, player: (action.payload || '').toUpperCase()};
-    default: return state;
+      return { ...state, player: (action.payload || '').toUpperCase() };
+    default:
+      return state;
   }
 };
