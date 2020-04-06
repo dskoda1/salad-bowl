@@ -1,14 +1,22 @@
-import React, {useState} from 'react';
-import {css} from 'emotion';
-import {Col, Row} from 'reactstrap';
+import React, { useState } from 'react';
+import { css } from 'emotion';
+import { Col, Row } from 'reactstrap';
 import SelectAll from 'components/SelectAll/SelectAll';
-import {DEFAULT_LOCATIONS} from 'consts';
-import {logEvent} from 'utils/analytics';
+import { DEFAULT_LOCATIONS } from 'consts';
+import { logEvent } from 'utils/analytics';
 
 import Location from './Location';
 
-export const DefaultLocationsList = ({version, onSelectAll, onDeselectAll}) => {
-  const [locations] = useState(() => Object.entries(DEFAULT_LOCATIONS).filter(([key, value]) => value === version).map(([key]) => key));
+export const DefaultLocationsList = ({
+  version,
+  onSelectAll,
+  onDeselectAll,
+}) => {
+  const [locations] = useState(() =>
+    Object.entries(DEFAULT_LOCATIONS)
+      .filter(([key, value]) => value === version)
+      .map(([key]) => key)
+  );
 
   const onSelectAllClick = () => {
     logEvent('SETTINGS_ON_SELECT_ALL');
@@ -36,9 +44,9 @@ export const DefaultLocationsList = ({version, onSelectAll, onDeselectAll}) => {
             <SelectAll onClick={onDeselectAllClick} />
           </Col>
         </Row>
-        {locations.map((location) =>
+        {locations.map((location) => (
           <Location key={location} locationId={location} disabled />
-        )}
+        ))}
       </Col>
     </Row>
   );

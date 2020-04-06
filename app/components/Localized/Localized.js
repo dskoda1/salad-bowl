@@ -5,9 +5,7 @@ import ReactHtmlParser from 'react-html-parser';
 const Localized = (props) => {
   const [t] = useTranslation();
   return (
-    <span {...props}>
-      {ReactHtmlParser(t(props.name || props.children))}
-    </span>
+    <span {...props}>{ReactHtmlParser(t(props.name || props.children))}</span>
   );
 };
 

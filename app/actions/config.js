@@ -36,7 +36,7 @@ export const createCustomLocationAction = () => ({
 
 export const saveCustomLocationAction = (id, location) => ({
   type: SAVE_CUSTOM_LOCATION,
-  payload: {id, location},
+  payload: { id, location },
 });
 
 export const remCustomLocationAction = (id) => ({
@@ -56,7 +56,7 @@ export const setSelectedLocations = (selectedLocations) => ({
 
 export const updatePlayerAction = (playerIndex, player) => ({
   type: UPDATE_PLAYER,
-  payload: {playerIndex, player},
+  payload: { playerIndex, player },
 });
 
 export const setTimeAction = (time) => ({

@@ -3,13 +3,18 @@ import { css } from 'emotion';
 import { Row, Col } from 'reactstrap';
 import SaladIcon from 'components/SaladIcon/SaladIcon';
 
-const CogIcon = ({className, spies = [], remotePlayers = {}}) => (
+const CogIcon = ({ className, spies = [], remotePlayers = {} }) => (
   <Row className={className}>
-    {spies.map((playerId) =>
+    {spies.map((playerId) => (
       <Col key={playerId} className="text-center">
-        <SaladIcon className={styles.SaladIcon} /><span>{remotePlayers && remotePlayers[playerId] ? remotePlayers[playerId].name : playerId}</span>
+        <SaladIcon className={styles.SaladIcon} />
+        <span>
+          {remotePlayers && remotePlayers[playerId]
+            ? remotePlayers[playerId].name
+            : playerId}
+        </span>
       </Col>
-    )}
+    ))}
   </Row>
 );
 

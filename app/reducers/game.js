@@ -1,7 +1,4 @@
-import {
-  RESET_GAME,
-  UPDATE_GAME,
-} from 'actions/game';
+import { RESET_GAME, UPDATE_GAME } from 'actions/game';
 
 const initialState = {
   state: 'new',
@@ -13,11 +10,12 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-  switch(action.type){
+  switch (action.type) {
     case RESET_GAME:
       return initialState;
     case UPDATE_GAME:
-      return {...state, ...action.payload};
-    default: return state;
+      return { ...state, ...action.payload };
+    default:
+      return state;
   }
 };

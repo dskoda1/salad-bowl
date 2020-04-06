@@ -8,7 +8,7 @@ import ScrollToTop from 'components/ScrollToTop/ScrollToTop';
 
 import App from 'containers/App/App';
 
-export const RootComponent = ({history, store, persistor}) => {
+export const RootComponent = ({ history, store, persistor }) => {
   useEffect(() => {
     history.listen((location) => {
       logPageView(location.pathname + location.search);

@@ -1,9 +1,9 @@
 import _ from 'lodash';
-import {store} from 'store';
-import {resetGameAction, updateGameAction} from 'actions/game';
-import {database, databaseServerTimestamp} from 'services/firebase';
+import { store } from 'store';
+import { resetGameAction, updateGameAction } from 'actions/game';
+import { database, databaseServerTimestamp } from 'services/firebase';
 import gameLocationsSelector from 'selectors/gameLocations';
-import {logEvent} from 'utils/analytics';
+import { logEvent } from 'utils/analytics';
 
 let lastRoom = {};
 let lastLocations = {};
@@ -21,13 +21,15 @@ const saveGame = (meta = {}) => {
 
   const newLocations = gameLocationsSelector(state);
 
-  if(!_.isEqual(lastRoom, newRoom)){
+  if (!_.isEqual(lastRoom, newRoom)) {
     promises.push(database.ref(`roomsData/${state.room.id}`).update(newRoom));
     lastRoom = newRoom;
   }
 
-  if(!_.isEqual(lastLocations, newLocations)){
-    promises.push(database.ref(`roomsLocations/${state.room.id}`).set(newLocations));
+  if (!_.isEqual(lastLocations, newLocations)) {
+    promises.push(
+      database.ref(`roomsLocations/${state.room.id}`).set(newLocations)
+    );
     lastLocations = newLocations;
   }
 
@@ -38,7 +40,7 @@ export const resetGame = (connected) => {
   logEvent('GAME_RESET');
   store.dispatch(resetGameAction());
   const state = store.getState();
-  if(connected || state.session.roomConnected){
+  if (connected || state.session.roomConnected) {
     return saveGame({
       owner: state.root.userId,
       createdAt: databaseServerTimestamp,
@@ -52,7 +54,7 @@ export const updateGame = (game) => {
   logEvent('GAME_UPDATE');
   store.dispatch(updateGameAction(game));
   const state = store.getState();
-  if(state.session.roomConnected){
+  if (state.session.roomConnected) {
     return saveGame();
   }
 
@@ -63,7 +65,7 @@ export const deleteGame = async () => {
   logEvent('GAME_DELETE');
   store.dispatch(resetGameAction());
   const state = store.getState();
-  if(state.session.roomConnected){
+  if (state.session.roomConnected) {
     await Promise.all([
       database.ref(`roomsLocations/${state.room.id}`).remove(),
       database.ref(`roomsRemotePlayers/${state.room.id}`).remove(),

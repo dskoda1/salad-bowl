@@ -1,11 +1,11 @@
 {
-  "name": "spyfall",
-  "version": "2.0.0",
-  "description": "spyfall",
+  "name": "salad-bowl",
+  "version": "0.0.1",
+  "description": "Online implementation of Salad Bowl",
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/adrianocola/spyfall"
+    "url": "https://github.com/GentlemenoftheCode/salad-bowl"
   },
   "keywords": [
     "spyfall"
@@ -14,9 +14,9 @@
     "npm": ">=5",
     "node": ">=8"
   },
-  "author": "Adriano Cola",
+  "author": "https://github.com/orgs/GentlemenoftheCode/people",
   "license": "ISC",
-  "homepage": "http://adrianocola.com/spyfall",
+  "homepage": "",
   "scripts": {
     "postinstall": "patch-package",
     "prebuild": "npm run build:clean",
@@ -29,21 +29,15 @@
     "release-prod": "npm run build-prod && npm run firebase-deploy-prod",
     "start": "cross-env NODE_ENV=development webpack-dev-server --hot --config config/webpack.dev.babel.js --port 4000",
     "clean": "npm run test:clean && npm run build:clean",
-    "lint": "npm run lint:js",
-    "lint:eslint": "eslint --ignore-path .gitignore",
-    "lint:staged": "lint-staged",
-    "eslint:fix": "eslint -- . --ignore-path .gitignore --fix",
-    "lint:js": "npm run lint:eslint -- . ",
+    "lint": "npm run prettier",
     "deploy": "cp app/translations.js functions/lib/translations.js && firebase deploy --project default --only",
     "deploy-prod": "cp app/translations.js functions/lib/translations.js && firebase deploy --project prod --only",
     "copy-translations": "rimraf ./build/i18n && ncp ./public/i18n ./build/i18n",
     "deploy-translations": "npm run copy-translations && npm run firebase-deploy",
-    "deploy-translations-prod": "npm run copy-translations && npm run firebase-deploy-prod"
+    "deploy-translations-prod": "npm run copy-translations && npm run firebase-deploy-prod",
+    "prettier": "prettier --config .prettierrc --write \"app/**/*.js\""
   },
-  "lint-staged": {
-    "*.js": "eslint --ignore-path .gitignore --ignore-pattern internals/scripts"
-  },
-  "pre-commit": "lint:staged",
+  "pre-commit": "prettier",
   "dependencies": {
     "@hot-loader/react-dom": "^16.11.0",
     "animate.css": "^3.7.2",
@@ -107,15 +101,6 @@
     "dynamic-cdn-webpack-plugin": "^5.0.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb": "^17.1.1",
-    "eslint-config-airbnb-base": "^13.2.0",
-    "eslint-import-resolver-webpack": "^0.11.1",
-    "eslint-plugin-emotion": "^10.0.27",
-    "eslint-plugin-import": "^2.20.0",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.18.0",
-    "eslint-plugin-react-hooks": "^1.7.0",
     "eventsource-polyfill": "^0.9.6",
     "exports-loader": "^0.7.0",
     "file-loader": "^4.3.0",
@@ -132,6 +117,7 @@
     "patch-package": "^6.2.1",
     "plop": "^2.5.3",
     "pre-commit": "^1.2.2",
+    "prettier": "2.0.2",
     "react-test-renderer": "^16.12.0",
     "rimraf": "^2.7.1",
     "sass-loader": "^7.3.1",

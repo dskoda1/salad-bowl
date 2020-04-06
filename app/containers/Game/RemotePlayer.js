@@ -1,12 +1,17 @@
 import React from 'react';
-import {css} from 'emotion';
-import {Col, Row, Button, Badge } from 'reactstrap';
-import {database} from 'services/firebase';
-import {logEvent} from 'utils/analytics';
+import { css } from 'emotion';
+import { Col, Row, Button, Badge } from 'reactstrap';
+import { database } from 'services/firebase';
+import { logEvent } from 'utils/analytics';
 
-export const RemotePlayer = ({roomId, playerUserId, remotePlayer, started}) => {
+export const RemotePlayer = ({
+  roomId,
+  playerUserId,
+  remotePlayer,
+  started,
+}) => {
   const onRemove = () => {
-    if(started) return;
+    if (started) return;
     logEvent('ROOM_PLAYER_REMOVED');
     database.ref(`roomsRemotePlayers/${roomId}/${playerUserId}`).remove();
   };
@@ -14,9 +19,24 @@ export const RemotePlayer = ({roomId, playerUserId, remotePlayer, started}) => {
   return (
     <Row className={styles.player}>
       <Col>
-        <Button color="secondary" block disabled>{remotePlayer.name}</Button>
-        {remotePlayer.online && <Badge pill color="success" className={styles.isOnline}>✓</Badge>}
-        {!remotePlayer.online && <Badge pill color="danger" className={styles.isOffline} onClick={onRemove}>✘</Badge>}
+        <Button color="secondary" block disabled>
+          {remotePlayer.name}
+        </Button>
+        {remotePlayer.online && (
+          <Badge pill color="success" className={styles.isOnline}>
+            ✓
+          </Badge>
+        )}
+        {!remotePlayer.online && (
+          <Badge
+            pill
+            color="danger"
+            className={styles.isOffline}
+            onClick={onRemove}
+          >
+            ✘
+          </Badge>
+        )}
       </Col>
     </Row>
   );
@@ -41,6 +61,5 @@ const styles = {
     cursor: 'pointer',
   }),
 };
-
 
 export default RemotePlayer;
