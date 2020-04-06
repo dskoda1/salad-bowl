@@ -1,8 +1,9 @@
-import { SET_USER_ID, SET_USER_NAME } from 'actions/root';
+import { SET_USER_ID, SET_USER_NAME, APPEND_NOUNS } from 'actions/root';
 
 const initialState = {
   userId: null,
   userName: null,
+  nouns: [],
 };
 
 export default (state = initialState, action) => {
@@ -11,6 +12,8 @@ export default (state = initialState, action) => {
       return { ...state, userId: action.payload };
     case SET_USER_NAME:
       return { ...state, userName: action.payload };
+    case APPEND_NOUNS:
+      return { ...state, nouns: initialState.nouns.push(action.payload) };
     default:
       return state;
   }
