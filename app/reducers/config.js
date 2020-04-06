@@ -24,12 +24,12 @@ const defaultSelectedLocations = Object.entries(DEFAULT_LOCATIONS)
   }, {});
 
 const initialState = {
-  selectedLocations: defaultSelectedLocations,
-  customLocations: {},
-  roomId: roomIdGenerator(),
-  players: ['P1'],
-  time: 480,
-  spyCount: 1,
+  // selectedLocations: defaultSelectedLocations,
+  // customLocations: {},
+  // roomId: roomIdGenerator(),
+  // players: ['P1'],
+  // time: 480,
+  // spyCount: 1,
 };
 
 export default (state = initialState, action) => {
