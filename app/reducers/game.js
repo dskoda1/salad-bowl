@@ -2,10 +2,7 @@ import { RESET_GAME, UPDATE_GAME } from 'actions/game';
 
 const initialState = {
   state: 'new',
-  playersRoles: {},
-  location: '',
-  prevLocation: '',
-  spies: [],
+  // players: {},
   timerRunning: false,
 };
 
