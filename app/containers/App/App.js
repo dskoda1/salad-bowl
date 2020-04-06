@@ -60,8 +60,6 @@ export class App extends React.Component {
               </Col>
             </Row>
             <Switch>
-              <Route exact path="/settings" component={LoadableSettings} />
-              <Route exact path="/join" component={LoadableJoinRoom} />
               <Route path="/rooms/:room" component={SaladBowl} />
               <Route exact path="/" component={Home} />
             </Switch>

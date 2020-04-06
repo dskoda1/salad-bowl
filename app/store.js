@@ -45,7 +45,7 @@ const persistedReducer = persistReducer(
     game,
     config,
     room,
-    joinRoom,
+    // joinRoom,
   })
 );
 
