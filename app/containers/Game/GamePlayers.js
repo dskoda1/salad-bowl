@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import React from 'react';
 import { connect } from 'react-redux';
-import { updatePlayerAction } from 'actions/config';
+import { updatePlayerAction } from 'redux/actions/config';
 import Player from './Player';
 import RemotePlayer from './RemotePlayer';
 

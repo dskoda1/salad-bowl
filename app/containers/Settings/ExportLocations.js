@@ -10,7 +10,7 @@ import roomIdGenerator from 'services/roomIdGenerator';
 import { GoClippy } from 'react-icons/go';
 import { useTranslation } from 'react-i18next';
 import copyToClipboard from 'utils/copyToClipboard';
-import { setCustomLocations, setSelectedLocations } from 'actions/config';
+import { setCustomLocations, setSelectedLocations } from 'redux/actions/config';
 import { SHADES } from 'styles/consts';
 import { showError, showSuccess } from 'utils/toast';
 import { ID_LENGTH } from 'consts';

@@ -7,7 +7,7 @@ import Localized from 'components/Localized/Localized';
 import RolePopup from 'components/RolePopup/RolePopup';
 import ResultsSpies from 'components/ResultsSpies/ResultsSpies';
 import { database } from 'services/firebase';
-import { setJoinedRoomAction } from 'actions/session';
+import { setJoinedRoomAction } from 'redux/actions/session';
 import Timer from 'components/Timer/Timer';
 import Spinner from 'components/Spinner/Spinner';
 import { showError } from 'utils/toast';

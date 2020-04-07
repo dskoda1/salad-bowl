@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { Button, Col, Row } from 'reactstrap';
 import Localized from 'components/Localized/Localized';
 import { useTranslation } from 'react-i18next';
-import gameLocationsSelector from 'selectors/gameLocations';
+import gameLocationsSelector from 'redux/selectors/gameLocations';
 import {
   DEFAULT_LOCATIONS,
   GAME_STATES,

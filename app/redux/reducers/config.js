@@ -14,7 +14,7 @@ import {
   SELECT_LOCATION,
   SET_TIME,
   UPDATE_PLAYER,
-} from 'actions/config';
+} from 'redux/actions/config';
 
 const defaultSelectedLocations = Object.entries(DEFAULT_LOCATIONS)
   .filter(([key, value]) => value === 1)

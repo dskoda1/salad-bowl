@@ -13,8 +13,8 @@ import {
   setLanguageAction,
   setTranslations,
   setUserIdAction,
-} from 'actions/root';
-import { setCustomLocations, setSelectedLocations } from 'actions/config';
+} from 'redux/actions/root';
+import { setCustomLocations, setSelectedLocations } from 'redux/actions/config';
 import { TRANSLATIONS } from 'consts';
 
 import SaladBowl from 'containers/SaladBowl';

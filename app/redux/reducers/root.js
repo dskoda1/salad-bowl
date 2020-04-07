@@ -1,4 +1,4 @@
-import { SET_USER_ID, SET_USER_NAME, APPEND_NOUNS } from 'actions/root';
+import { SET_USER_ID, SET_USER_NAME } from 'redux/actions/root';
 
 const initialState = {
   userId: null,

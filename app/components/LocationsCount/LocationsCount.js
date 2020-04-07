@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import selectedLocationsCountSelector from 'selectors/selectedLocationsCount';
-import totalLocationsCountSelector from 'selectors/totalLocationsCount';
+import selectedLocationsCountSelector from 'redux/selectors/selectedLocationsCount';
+import totalLocationsCountSelector from 'redux/selectors/totalLocationsCount';
 
 export const LocationsCount = ({
   className,

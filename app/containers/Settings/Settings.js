@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import {
   selectAllLocationsAction,
   deselectAllLocationsAction,
-} from 'actions/config';
+} from 'redux/actions/config';
 
 import DefaultLocationsList from './DefaultLocationsList';
 import CustomLocationsList from './CustomLocationsList';

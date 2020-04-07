@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Row, Col, Button } from 'reactstrap';
 import Localized from 'components/Localized/Localized';
 import SelectAll from 'components/SelectAll/SelectAll';
-import { createCustomLocationAction } from 'actions/config';
+import { createCustomLocationAction } from 'redux/actions/config';
 import { logEvent } from 'utils/analytics';
 
 import Location from './Location';

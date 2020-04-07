@@ -5,7 +5,7 @@ import { Col, Row } from 'reactstrap';
 import ButtonWithLoading from 'components/ButtonWithLoading/ButtonWithLoading';
 import Localized from 'components/Localized/Localized';
 import { useDropzone } from 'react-dropzone';
-import { setCustomLocations, setSelectedLocations } from 'actions/config';
+import { setCustomLocations, setSelectedLocations } from 'redux/actions/config';
 import { showError, showSuccess } from 'utils/toast';
 
 export const ExportLocations = ({

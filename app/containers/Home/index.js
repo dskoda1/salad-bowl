@@ -14,7 +14,7 @@ const HomePage = () => (
       <CreateRoom />
     </Row>
     <Row className={styles.area}>
-      <RoomInfo/>
+      <RoomInfo />
     </Row>
   </Container>
 );

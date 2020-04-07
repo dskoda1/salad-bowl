@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Col, Input, Row } from 'reactstrap';
 import { css } from 'emotion';
 import Localized from 'components/Localized/Localized';
-import { setSpyCountAction, setTimeAction } from 'actions/config';
+import { setSpyCountAction, setTimeAction } from 'redux/actions/config';
 import { logEvent } from 'utils/analytics';
 
 export const GameConfig = ({ time, setTime, spyCount, setSpyCount }) => {
