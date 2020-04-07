@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import gameLocationsSelector from 'selectors/gameLocations';
-import selectedLocationsCountSelector from 'selectors/selectedLocationsCount';
+import gameLocationsSelector from 'redux/selectors/gameLocations';
+import selectedLocationsCountSelector from 'redux/selectors/selectedLocationsCount';
 
 import TimerManager from './TimerManager';
 

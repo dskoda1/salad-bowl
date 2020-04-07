@@ -1,4 +1,4 @@
-import { SET_ROOM_CONNECTED, SET_JOINED_ROOM } from 'actions/session';
+import { SET_ROOM_CONNECTED, SET_JOINED_ROOM } from 'redux/actions/session';
 
 const initialState = {
   roomConnected: false,

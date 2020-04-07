@@ -2,15 +2,14 @@ import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
+import createSagaMiddleware from 'redux-saga';
+import root from 'redux/reducers/root';
+import session from 'redux/reducers/session';
+import game from 'redux/reducers/game';
+import config from 'redux/reducers/config';
+import room from 'redux/reducers/room';
 
-import root from 'reducers/root';
-import session from 'reducers/session';
-import game from 'reducers/game';
-import config from 'reducers/config';
-import room from 'reducers/room';
-import joinRoom from 'reducers/joinRoom';
-
-const middlewares = [];
+import rootSaga from 'redux/sagas';
 
 const persistConfig = {
   key: 'persistor',
@@ -18,6 +17,8 @@ const persistConfig = {
   blacklist: ['session', 'game'],
   stateReconciler: autoMergeLevel2,
 };
+
+const sagaMiddleware = createSagaMiddleware();
 
 /* eslint-disable no-underscore-dangle */
 const composeEnhancers =
@@ -33,7 +34,7 @@ const composeEnhancers =
 /* eslint-enable */
 
 const enhancer = composeEnhancers(
-  applyMiddleware(...middlewares)
+  applyMiddleware(sagaMiddleware)
   // other store enhancers if any
 );
 
@@ -51,4 +52,6 @@ const persistedReducer = persistReducer(
 
 export const store = createStore(persistedReducer, {}, enhancer);
 export const persistor = persistStore(store);
+sagaMiddleware.run(rootSaga);
+
 export default { store, persistor };

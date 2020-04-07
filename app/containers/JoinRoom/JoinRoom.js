@@ -7,8 +7,11 @@ import ButtonWithLoading from 'components/ButtonWithLoading/ButtonWithLoading';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { database, databaseServerTimestamp } from 'services/firebase';
-import { setJoinPlayerAction, setJoinRoomIdAction } from 'actions/joinRoom';
-import { setJoinedRoomAction } from 'actions/session';
+import {
+  setJoinPlayerAction,
+  setJoinRoomIdAction,
+} from 'redux/actions/joinRoom';
+import { setJoinedRoomAction } from 'redux/actions/session';
 import { showError } from 'utils/toast';
 import { ID_LENGTH } from 'consts';
 import { logEvent } from 'utils/analytics';

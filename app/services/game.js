@@ -1,8 +1,8 @@
 import _ from 'lodash';
 import { store } from 'store';
-import { resetGameAction, updateGameAction } from 'actions/game';
+import { resetGameAction, updateGameAction } from 'redux/actions/game';
 import { database, databaseServerTimestamp } from 'services/firebase';
-import gameLocationsSelector from 'selectors/gameLocations';
+import gameLocationsSelector from 'redux/selectors/gameLocations';
 import { logEvent } from 'utils/analytics';
 
 let lastRoom = {};

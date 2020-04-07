@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { css } from 'emotion';
 import { Modal, ModalHeader, ModalBody } from 'reactstrap';
-import gameLocationsSelector from 'selectors/gameLocations';
+import gameLocationsSelector from 'redux/selectors/gameLocations';
 import Locations from 'components/Locations/Locations';
 import Localized from 'components/Localized/Localized';
 

@@ -27,7 +27,7 @@
     "firebase-deploy-prod": "rm ./build/*.js.map ; firebase deploy --only hosting -P prod",
     "release": "npm run build && npm run firebase-deploy",
     "release-prod": "npm run build-prod && npm run firebase-deploy-prod",
-    "start": "cross-env NODE_ENV=development webpack-dev-server --hot --config config/webpack.dev.babel.js --port 4000",
+    "start": "cross-env NODE_ENV=development webpack-dev-server --hot --config config/webpack.dev.babel.js --port 4000 --host 0.0.0.0",
     "clean": "npm run test:clean && npm run build:clean",
     "lint": "npm run prettier",
     "deploy": "cp app/translations.js functions/lib/translations.js && firebase deploy --project default --only",
@@ -69,6 +69,7 @@
     "reactstrap": "^8.4.0",
     "redux": "^4.0.5",
     "redux-persist": "^5.10.0",
+    "redux-saga": "^1.1.3",
     "reselect": "^4.0.0",
     "sanitize.css": "^10.0.0",
     "shortid": "^2.2.15"

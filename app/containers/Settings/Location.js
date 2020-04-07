@@ -13,7 +13,7 @@ import {
   deselectLocationAction,
   saveCustomLocationAction,
   remCustomLocationAction,
-} from 'actions/config';
+} from 'redux/actions/config';
 import { logEvent } from 'utils/analytics';
 
 export const Location = React.memo(
