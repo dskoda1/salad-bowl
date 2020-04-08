@@ -24,15 +24,15 @@ import SpinnerModal from 'components/SpinnerModal/SpinnerModal';
 import SaladIcon from 'components/SaladIcon/SaladIcon';
 
 const LoadableSettings = Loadable({
-  loader: () => import('../Settings/Settings'),
+  loader: () => import('../old/Settings/Settings'),
   loading: SpinnerModal,
 });
 const LoadableGame = Loadable({
-  loader: () => import('../Game/Game'),
+  loader: () => import('../old/Game/Game'),
   loading: SpinnerModal,
 });
 const LoadableJoinRoom = Loadable({
-  loader: () => import('../JoinRoom/JoinRoom'),
+  loader: () => import('../old/JoinRoom/JoinRoom'),
   loading: SpinnerModal,
 });
 
