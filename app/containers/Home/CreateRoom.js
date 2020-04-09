@@ -9,16 +9,31 @@ import Spinner from '../../components/Spinner/Spinner';
 const CreateRoom = () => {
   const dispatch = useDispatch();
   const rootState = useSelector((state) => state);
+  const roomState = useSelector((state) => state.room);
   const history = useHistory();
 
-  const [activeRoom, setActiveRoom] = useState(rootState.room.active);
+  // Caching last renders active & joining props
+  const [activeRoom, setActiveRoom] = useState(roomState.active);
+  const [creatingRoom, setCreatingRoom] = useState(roomState.creating);
   useEffect(() => {
-    if (!activeRoom && rootState.room.active) {
-      console.log(`pushing onto history: /rooms/${rootState.room.id}`);
-      history.push(`rooms/${rootState.room.id}`);
+    if (
+      !activeRoom &&
+      roomState.active &&
+      creatingRoom &&
+      !roomState.creating
+    ) {
+      history.push(`/rooms/${roomState.id}`);
     }
-    setActiveRoom(rootState.room.active);
-  }, [activeRoom, setActiveRoom, rootState.room.active, history]);
+    setActiveRoom(roomState.active);
+    setCreatingRoom(roomState.creating);
+  }, [
+    activeRoom,
+    setActiveRoom,
+    creatingRoom,
+    setCreatingRoom,
+    roomState,
+    history,
+  ]);
 
   // Local state for input
   const [name, onNameUpdate] = useState(rootState.root.userName || '');

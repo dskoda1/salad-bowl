@@ -5,5 +5,5 @@ import { createRoomSaga, joinRoomSaga } from 'redux/sagas/room';
 
 export default function* () {
   yield takeLatest(CREATE_ROOM, createRoomSaga);
-  // yield takeLatest(JOIN_ROOM, joinRoomSaga)
+  yield takeLatest(JOIN_ROOM, joinRoomSaga);
 }

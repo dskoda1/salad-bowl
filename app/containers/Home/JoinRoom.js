@@ -8,19 +8,30 @@ import { joinRoomAction } from 'redux/actions/room';
 const JoinRoom = () => {
   const dispatch = useDispatch();
   const rootState = useSelector((state) => state);
+  const roomState = useSelector((state) => state.room);
   const history = useHistory();
 
-  const [activeRoom, setActiveRoom] = useState(rootState.room.active);
+  // Caching last renders active & joining props
+  const [activeRoom, setActiveRoom] = useState(roomState.active);
+  const [joiningRoom, setJoiningRoom] = useState(roomState.joining);
 
   // Local state for input
   const [name, onNameUpdate] = useState(rootState.root.userName || '');
-  const [room, onRoomUpdate] = useState(rootState.room.joinRoomId);
+  const [room, onRoomUpdate] = useState(roomState.joinRoomId);
   useEffect(() => {
-    if (!activeRoom && rootState.room.active) {
+    if (!activeRoom && roomState.active && joiningRoom && !roomState.joining) {
       history.push(`/rooms/${room}`);
     }
-    setActiveRoom(rootState.room.active);
-  }, [activeRoom, setActiveRoom, rootState.room.active, history, room]);
+    setActiveRoom(roomState.active);
+    setJoiningRoom(roomState.joining);
+  }, [
+    activeRoom,
+    setActiveRoom,
+    joiningRoom,
+    setJoiningRoom,
+    roomState,
+    history,
+  ]);
   return (
     <Container className={styles.container}>
       <Form>
