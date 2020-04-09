@@ -17,6 +17,7 @@ const JoinRoom = () => {
 
   // Local state for input
   const [name, onNameUpdate] = useState(rootState.root.userName || '');
+  // TODO: Force this to always be upper cased (room id)
   const [room, onRoomUpdate] = useState(roomState.joinRoomId);
   useEffect(() => {
     if (!activeRoom && roomState.active && joiningRoom && !roomState.joining) {

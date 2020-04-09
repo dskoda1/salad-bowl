@@ -5,7 +5,6 @@ import NounForm from './NounForm';
 import { useSelector } from 'react-redux';
 import GameManager from './GameManager';
 import GamePlayer from './GamePlayer';
-import { Row } from 'reactstrap';
 
 const SaladBowl = () => {
   const { room } = useParams();

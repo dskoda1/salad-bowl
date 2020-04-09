@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { appendNouns } from 'actions/root';
+import { appendNouns } from 'redux/actions/root';
 
 import { css } from 'emotion';
 import { Container, Col, Row, Input, Button, Form } from 'reactstrap';

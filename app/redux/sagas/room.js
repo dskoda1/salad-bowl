@@ -33,6 +33,13 @@ const createRoomSaga = function* ({ payload: { userName, roomId } }) {
     yield database.ref(`roomsData`).update({
       [roomId]: newRoom,
     });
+    yield database
+      .ref(`roomsRemotePlayers/${roomId}/${state.root.userId}`)
+      .update({
+        createdAt: databaseServerTimestamp,
+        updatedAt: databaseServerTimestamp,
+        name: userName,
+      });
   } catch (err) {
     // Refresh the room id in the off chance that the random ID is duplicated
     yield put(refreshRoomId());
