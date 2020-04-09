@@ -14,14 +14,14 @@ const CreateRoom = () => {
   const [activeRoom, setActiveRoom] = useState(rootState.room.active);
   useEffect(() => {
     if (!activeRoom && rootState.room.active) {
-      history.push(`/rooms/${rootState.room.id}`);
+      console.log(`pushing onto history: /rooms/${rootState.room.id}`);
+      history.push(`rooms/${rootState.room.id}`);
     }
     setActiveRoom(rootState.room.active);
   }, [activeRoom, setActiveRoom, rootState.room.active, history]);
 
   // Local state for input
   const [name, onNameUpdate] = useState(rootState.root.userName || '');
-  const [room, onRoomUpdate] = useState('');
   // Function for going to the created room
   return (
     <Container className={styles.container}>

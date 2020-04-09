@@ -4,6 +4,7 @@ import { Container, Col, Row } from 'reactstrap';
 import { css } from 'emotion';
 import CreateRoom from './CreateRoom';
 import RoomInfo from './RoomInfo';
+import JoinRoom from './JoinRoom';
 
 const HomePage = () => (
   <Container>
@@ -12,6 +13,9 @@ const HomePage = () => (
     </Row>
     <Row className={styles.area}>
       <CreateRoom />
+    </Row>
+    <Row className={styles.area}>
+      <JoinRoom />
     </Row>
     <Row className={styles.area}>
       <RoomInfo />

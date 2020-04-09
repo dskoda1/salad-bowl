@@ -3,31 +3,29 @@ import { css } from 'emotion';
 import { useHistory } from 'react-router-dom';
 import { Container, Col, Row, Input, Button, Form } from 'reactstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { createRoomAction } from '../../redux/actions/room';
-import Spinner from '../../components/Spinner/Spinner';
+import { joinRoomAction } from 'redux/actions/room';
 
-const CreateRoom = () => {
+const JoinRoom = () => {
   const dispatch = useDispatch();
   const rootState = useSelector((state) => state);
   const history = useHistory();
 
   const [activeRoom, setActiveRoom] = useState(rootState.room.active);
-  useEffect(() => {
-    if (!activeRoom && rootState.room.active) {
-      history.push(`/rooms/${rootState.room.id}`);
-    }
-    setActiveRoom(rootState.room.active);
-  }, [activeRoom, setActiveRoom, rootState.room.active, history]);
 
   // Local state for input
   const [name, onNameUpdate] = useState(rootState.root.userName || '');
-  const [room, onRoomUpdate] = useState('');
-  // Function for going to the created room
+  const [room, onRoomUpdate] = useState(rootState.room.joinRoomId);
+  useEffect(() => {
+    if (!activeRoom && rootState.room.active) {
+      history.push(`/rooms/${room}`);
+    }
+    setActiveRoom(rootState.room.active);
+  }, [activeRoom, setActiveRoom, rootState.room.active, history, room]);
   return (
     <Container className={styles.container}>
       <Form>
         <Row className={styles.item}>
-          <h5>Create a room</h5>
+          <h5>Join a room</h5>
         </Row>
         <Row className={styles.item}>
           <Input
@@ -39,16 +37,23 @@ const CreateRoom = () => {
           />
         </Row>
         <Row className={styles.item}>
+          <Input
+            type="text"
+            value={room}
+            name="room_input"
+            placeholder="Room ID"
+            onChange={(e) => onRoomUpdate(e.target.value)}
+          />
+        </Row>
+        <Row className={styles.item}>
           <Col>
             <Button
               disabled={!name}
               size="100px"
               color="primary"
-              onClick={() =>
-                dispatch(createRoomAction(rootState.room.id, name))
-              }
+              onClick={() => dispatch(joinRoomAction(room, name))}
             >
-              Create
+              Join
             </Button>
           </Col>
         </Row>
@@ -66,4 +71,4 @@ const styles = {
   }),
 };
 
-export default CreateRoom;
+export default JoinRoom;
